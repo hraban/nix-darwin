@@ -58,7 +58,8 @@ let
   mkInternalOption = args: mkOption (args // {
     visible = false;
     internal = true;
-    readOnly = true;
+    # Allow overriding anything if you really want to
+    readOnly = false;
   });
 
   mkProcessedSubmodConfig = attrs: mapAttrs (_: mkBrewfileLineValueString)
